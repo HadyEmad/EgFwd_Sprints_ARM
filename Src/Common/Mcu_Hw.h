@@ -2,25 +2,48 @@
 
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
- *         File:  <Write File Name>
+ *         File:  Mcu_Hw.h
  *       Module:  -
  *
  *  Description:  <Write File DESCRIPTION here>     
  *  
  *********************************************************************************************************************/
-#ifndef INTCTRL_H
-#define INTCTRL_H
+#ifndef MCU_HW_H
+#define MCU_HW_H
 
 /**********************************************************************************************************************
  * INCLUDES
  *********************************************************************************************************************/
-#include "IntCtrl_Cfg.h"
-#include "IntCtrl_Lcfg.h"
+#include "Std_Types.h"
 
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
 
+/* Interrupt control needed registers */
+#define	CORTEXM4_PERI_BASE_ADDRESS					0xE000E000
+#define APINT																*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0xD0C))
+#define SYSHNDCTRL													*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0xD24))
+#define STCTRL															*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x010))
+#define SYSPRI1															*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0xD18))
+#define SYSPRI2 														*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0xD1C))
+#define SYSPRI3 														*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0xD20))
+
+/* Port and dio needed registers */
+#define GPIOA_BASE                      0x40004000UL
+#define GPIODATA_OFFSET									0x000
+#define GPIODIR_OFFSET									0x400
+#define GPIODR2R_OFFSET									0x500		
+#define GPIODR4R_OFFSET									0x504
+#define GPIODR8R_OFFSET									0x508
+#define GPIOODR_OFFSET									0x50C
+#define GPIOPUR_OFFSET									0x510
+#define GPIOPDR_OFFSET									0x514
+#define GPIODEN_OFFSET									0x51C
+#define GPIOLOCK_OFFSET									0x520
+#define GPIOCR_OFFSET										0x524
+#define GPIOAMSEL_OFFSET								0x528
+#define GPIOPCTL_OFFSET									0x52C
 
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS
@@ -31,6 +54,17 @@
  *  GLOBAL DATA TYPES AND STRUCTURES
  *********************************************************************************************************************/
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
 
 /**********************************************************************************************************************
  *  GLOBAL DATA PROTOTYPES
@@ -40,11 +74,10 @@
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION PROTOTYPES
  *********************************************************************************************************************/
-void IntCtrl_Init(void);
 
  
-#endif  /* FILE_NAME_H */
+#endif  /* MCU_HW_H */
 
 /**********************************************************************************************************************
- *  END OF FILE: Std_Types.h
+ *  END OF FILE: Mcu_Hw.h
  *********************************************************************************************************************/
