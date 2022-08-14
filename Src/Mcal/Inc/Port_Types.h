@@ -41,20 +41,26 @@ typedef enum
 	PORT_PIN_IN, PORT_PIN_OUT
 }Port_PinDirectionType;
 
+typedef enum
+{
+	PORT_PIN_LOW,PORT_PIN_HIGH
+}Port_PinInitialValueType;
+
  typedef enum
  {
-		PORT_PIN_MODE_UART, PORT_PIN_MODE_CAN, PORT_PIN_MODE_ADC, PORT_PIN_MODE_DIO, PORT_PIN_MODE_SSI,
-		PORT_PIN_MODE_I2C, PORT_PIN_MODE_PWM, PORT_PIN_MODE_GPT, PORT_PIN_MODE_JTAG
+		PORT_PIN_MODE_UART, PORT_PIN_MODE_CAN, PORT_PIN_MODE_SSI, PORT_PIN_MODE_I2C,
+		PORT_PIN_MODE_ACOMP_OUT, PORT_PIN_MODE_PWM_0,PORT_PIN_MODE_PWM_1, PORT_PIN_MODE_GPT, PORT_PIN_MODE_JTAG,
+		PORT_PIN_USB_D, PORT_PIN_NMI, PORT_PIN_QEI, PORT_PIN_MODE_DIO,PORT_PIN_MODE_ADC, PORT_PIN_USB_A, PORT_PIN_MODE_ACOMP_IN
  }Port_PinModeType;
  
  typedef enum
  {
-	 PORT_PIN_PULL_UP, PORT_PIN_PULL_DOWN, PORT_PIN_OPEN_DRAIN 
+	 PORT_PIN_OPEN_DRAIN,PORT_PIN_PULL_UP, PORT_PIN_PULL_DOWN,PORT_PIN_PULL_NONE
  }Port_PinInternalAttachType;
  
  typedef enum
  {
-	 PORT_PIN_CURRENT_2MA, PORT_PIN_CURRENT_4MA, PORT_PIN_CURRENT_8MA
+	 PORT_PIN_CURRENT_2MA, PORT_PIN_CURRENT_4MA, PORT_PIN_CURRENT_8MA,PORT_PIN_CURRENT_NONE
  }Port_PinOutputCurrentType;
  
  typedef struct
@@ -62,6 +68,7 @@ typedef enum
 	 Port_PinType Port_Pin;
 	 Port_PinDirectionType Port_PinDirection;
 	 Port_PinModeType Port_PinMode;
+	 Port_PinInitialValueType Port_PinInitialValue;
 	 Port_PinInternalAttachType Port_PinInternalAttach;
 	 Port_PinOutputCurrentType Port_PinOutputCurrent;
  }PortPinConfig_s;

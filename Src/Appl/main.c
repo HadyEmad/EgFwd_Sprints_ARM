@@ -13,11 +13,15 @@
  *  INCLUDES
  *********************************************************************************************************************/
 #include "IntCtrl.h"
+#include "Port.h"
+#include "Mcu_Hw.h"
 
 int main(void)
 {
 	
 	IntCtrl_Init();
+	RCGCGPIO = 0x3F;
+	Port_Init(&Port_Config);
 	while(1)
 	{
 		
