@@ -88,7 +88,16 @@ PortPinConfig_s PortPinConfig[PORT_PIN_CONFIG_SIZE] =
 		.Port_PinInternalAttach = PORT_PIN_PULL_NONE,
 		.Port_PinOutputCurrent = PORT_PIN_CURRENT_8MA,
 		.Port_PinInitialValue = PORT_PIN_HIGH
+	},
+	{
+		.Port_Pin = PORT_F_PIN_1,
+		.Port_PinDirection = PORT_PIN_OUT,
+		.Port_PinMode = PORT_PIN_MODE_DIO,
+		.Port_PinInternalAttach = PORT_PIN_PULL_NONE,
+		.Port_PinOutputCurrent = PORT_PIN_CURRENT_8MA,
+		.Port_PinInitialValue = PORT_PIN_LOW
 	}
+	
 };
 
 Port_ConfigType Port_Config = { .PortPinConfig_numberOfInstances = PORT_PIN_CONFIG_SIZE};

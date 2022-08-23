@@ -2,24 +2,25 @@
 
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
- *         File:  Port_Lcfg.h
- *       Module:  Port
+ *         File:  Gpt.h
+ *       Module:  Gpt
  *
- *  Description:  Header file for linking time configurations for port driver    
+ *  Description:       
  *  
  *********************************************************************************************************************/
-#ifndef PORT_LCFG_H
-#define PORT_LCFG_H
+#ifndef GPT_H
+#define GPT_H
 
 /**********************************************************************************************************************
  * INCLUDES
  *********************************************************************************************************************/
-#include "Port_Types.h"
+#include "Gpt_Lcfg.h"
+#include "Gpt_Cfg.h"
 
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
-#define PORT_PIN_CONFIG_SIZE		9
+
 
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS
@@ -34,15 +35,24 @@
 /**********************************************************************************************************************
  *  GLOBAL DATA PROTOTYPES
  *********************************************************************************************************************/
-extern PortPinConfig_s PortPinConfig[PORT_PIN_CONFIG_SIZE];
-extern Port_ConfigType Port_Config;
+ 
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION PROTOTYPES
  *********************************************************************************************************************/
+void Gpt_Init(const Gpt_ConfigType *ConfigPtr);
+void Gpt_StartTimer(Gpt_ChannelType Channel, Gpt_ValueType Value);
+void Gpt_StopTimer(Gpt_ChannelType Channel);
+void Gpt_EnableNotification(Gpt_ChannelType Channel);
+void Gpt_DisableNotification(Gpt_ChannelType Channel);
+Gpt_ValueType Gpt_GetTimeElapsed(Gpt_ChannelType Channel);
+Gpt_ValueType Gpt_GetTimeRemaining(Gpt_ChannelType Channel);
 
+#if (GPT_PREDEF_TIMER_1US_ENABLING_GRADE != STD_OFF || GPT_PREDEF_TIMER_100US_32BIT_ENABLE == STD_ON)
+Std_ReturnType Gpt_GetPredefTimerValue( Gpt_PredefTimerType PredefTimer, uint32* TimeValuePtr);
+#endif
  
-#endif  /* PORT_LCFG_H */
+#endif  /* GPT_H */
 
 /**********************************************************************************************************************
- *  END OF FILE: Port_Lcfg.h
+ *  END OF FILE: Gpt.h
  *********************************************************************************************************************/

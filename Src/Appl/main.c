@@ -1,39 +1,27 @@
 /**********************************************************************************************************************
  *  FILE DESCRIPTION
  *  -----------------------------------------------------------------------------------------------------------------*/
-/**        \file  FileName.c
- *        \brief  
- *
- *      \details  
- *
+/**        \file  LED.c
+ *        \brief  Source file for internal Red LED control in TivaC
  *
  *********************************************************************************************************************/
 
 /**********************************************************************************************************************
  *  INCLUDES
  *********************************************************************************************************************/
-#include "IntCtrl.h"
-#include "Port.h"
-#include "Mcu_Hw.h"
-#include "Dio.h"
+#include "LED.h"
 
 int main(void)
 {
+	LED_Init(10, 5);
 	
-	IntCtrl_Init();
-	RCGCGPIO = 0x3F;
-	Port_Init(&Port_Config);
-	Dio_WriteChannel(PA0,CHANNEL_LEVEL_HIGH);
-	volatile Dio_LevelType Level = Dio_ReadChannel(PA0);
-	Dio_WritePort(PORT_A,254);
-	volatile Dio_PortLevelType Port_Level = Dio_ReadPort(PORT_A);
-	Level = Dio_FlipChannel(PA0);
 	while(1)
 	{
 		
 	}
 	
 }
+
 
 
 /**********************************************************************************************************************
