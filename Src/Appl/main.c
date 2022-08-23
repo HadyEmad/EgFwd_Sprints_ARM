@@ -13,8 +13,8 @@
 
 int main(void)
 {
-	LED_Init(10, 5);
-	
+	LED_Init(6, 3);
+	//LED_ChangePeriod(4,2);
 	while(1)
 	{
 		
